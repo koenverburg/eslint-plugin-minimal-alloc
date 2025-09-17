@@ -1,0 +1,26 @@
+{
+  "name": "eslint-plugin-minimal-alloc",
+  "version": "1.0.0",
+  "description": "collection of rules to reduce memory allocations in typescript/javascript",
+  "repository": {
+    "type": "git",
+    "url": "github.com/koenverburg/eslint-plugin/minimal-alloc"
+  },
+  "license": "ISC",
+  "author": "Koen Verburg <creativekoen@gmail.com>",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@stylistic/eslint-plugin": "^5.3.1",
+    "@typescript-eslint/eslint-plugin": "^8.44.0",
+    "@typescript-eslint/parser": "^8.44.0",
+    "eslint": "^9.35.0",
+    "eslint-plugin-exception-handling": "^1.5.4",
+    "eslint-plugin-perfectionist": "^4.15.0",
+    "eslint-plugin-unicorn": "^61.0.2"
+  }
+}
