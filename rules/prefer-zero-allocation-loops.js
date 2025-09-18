@@ -17,24 +17,20 @@ module.exports = {
     const sourceCode = context.getSourceCode()
 
     function buildLoop(arrText, callback) {
-      if ((
-        callback.type === 'ArrowFunctionExpression' ||
-        callback.type === 'FunctionExpression'
-      ) && callback.params.length === 1) {
+      if ((callback.type === 'ArrowFunctionExpression' ||
+           callback.type === 'FunctionExpression') &&
+           callback.params.length >= 1) {
         const param = sourceCode.getText(callback.params[0])
+        const body = sourceCode.getText(callback.body)
 
-        if (callback.body.type !== 'BlockStatement') {
-          const body = sourceCode.getText(callback.body)
-          return `for (const ${param} of ${arrText}) ${body}`
-        }
+        // if (callback.body.type !== 'BlockStatement') {
+        //   return `for (const ${param} of ${arrText}) ${body}`
+        // }
 
-        if (callback.body.type === 'BlockStatement') {
-          const body = sourceCode.getText(callback.body)
-          return `for (const ${param} of ${arrText}) ${body}`
-        }
+        return `for (const ${param} of ${arrText}) ${body}`
       }
 
-      return
+      return undefined // Explicit return
     }
 
     return {
